@@ -1,0 +1,213 @@
+<div class="main">
+  <form [formGroup]="form" (ngSubmit)="addWorkItem(form)">
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Item Name</mat-label>
+      <input
+        matInput
+        inputmode="itemName"
+        placeholder="Item Name"
+        formControlName="itemName"
+        #itemName
+      />
+      <mat-error>Item Name is required</mat-error>
+      <mat-error *ngIf="form.controls['itemName'].errors">
+        Please Enter Item Name!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Item Type</mat-label>
+      <input
+        matInput
+        inputmode="itemType"
+        placeholder="Item Type"
+        formControlName="itemType"
+        #itemType
+      />
+      <mat-error>Item Type is required</mat-error>
+      <mat-error *ngIf="form.controls['itemType'].errors">
+        Please Enter Item Type!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Item Description</mat-label>
+      <input
+        matInput
+        inputmode="itemDescription"
+        placeholder="Item Description"
+        formControlName="itemDescription"
+        #itemDescription
+      />
+      <mat-error>Item Description is required</mat-error>
+      <mat-error *ngIf="form.controls['itemDescription'].errors">
+        Please Enter Item Description!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Message To Recipient</mat-label>
+      <input
+        matInput
+        inputmode="messageToRecipient"
+        placeholder="Message To Recipient"
+        formControlName="messageToRecipient"
+        #messageToRecipient
+      />
+      <mat-error>Message To Recipient is required</mat-error>
+      <mat-error *ngIf="form.controls['messageToRecipient'].errors">
+        Please Enter Message To Recipient!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Quantity</mat-label>
+      <input
+        matInput
+        inputmode="quantity"
+        placeholder="Quantity"
+        formControlName="quantity"
+        #quantity
+      />
+      <mat-error>Quantity is required</mat-error>
+      <mat-error *ngIf="form.controls['quantity'].errors">
+        Please Enter Quantity!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Source Country</mat-label>
+      <input
+        matInput
+        inputmode="sourceCountry"
+        placeholder="Source Country"
+        formControlName="sourceCountry"
+        #sourceCountry
+      />
+      <mat-error>Source Country is required</mat-error>
+      <mat-error *ngIf="form.controls['sourceCountry'].errors">
+        Please Enter Source Country!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Destination Country</mat-label>
+      <input
+        matInput
+        inputmode="destinationCountry"
+        placeholder="Destination Country"
+        formControlName="destinationCountry"
+        #destinationCountry
+      />
+      <mat-error>Destination Country is required</mat-error>
+      <mat-error *ngIf="form.controls['destinationCountry'].errors">
+        Please Enter Destination Country!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Origin Harbor Location</mat-label>
+      <input
+        matInput
+        inputmode="orginHarborLocation"
+        placeholder="Origin Harbor Location"
+        formControlName="orginHarborLocation"
+        #orginHarborLocation
+      />
+      <mat-error>Origin Harbor Location is required</mat-error>
+      <mat-error *ngIf="form.controls['orginHarborLocation'].errors">
+        Please Enter Origin Harbor Location!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Selected Harbor Locations</mat-label>
+      <input
+        matInput
+        inputmode="selectedHarborLocation"
+        placeholder="Selected Harbor Locations"
+        formControlName="selectedHarborLocation"
+        #selectedHarborLocation
+      />
+      <mat-error>Selected Harbor Locations Field is required</mat-error>
+      <mat-error *ngIf="form.controls['selectedHarborLocation'].errors">
+        Please Enter Selected Harbor Locations!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Shipping Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="shippingDate"
+        #shippingDate
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>Shipping Date is required</mat-error>
+      <mat-error *ngIf="form.controls['shippingDate'].errors">
+        Please Enter Shipping Date!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      style="width: 400px; margin-left: 90px"
+      appearance="standard"
+    >
+      <mat-label style="font-weight: bolder">Amount</mat-label>
+      <input
+        matInput
+        inputmode="amount"
+        placeholder="Amount"
+        formControlName="amount"
+        #amount
+      />
+      <mat-error>Amount is required</mat-error>
+      <mat-error *ngIf="form.controls['amount'].errors">
+        Please Enter Amount!
+      </mat-error>
+    </mat-form-field>
+    <div mat-dialog-actions style="width: 400px; margin-left: 90px">
+      <button class="add"
+        mat-raised-button
+  
+        type="submit"
+        [disabled]="!form.valid"
+        style="font-weight: bolder"
+      >
+        Add Item
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,269 @@
+<div class="register">
+<div class="main">
+  <div class="logincomponent, container">
+    <div class="backimg"></div>
+    <div class="register-form">
+      <form class="login" [formGroup]="registerForm" (ngSubmit)="submit()">
+        <h1 class="registration" style="font-weight: bolder">Register New User</h1>
+        <br />
+        <hr />
+        <label for="firstname">Firstname</label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          placeholder="Enter your firstname"
+          [(ngModel)]="createuser.firstName"
+          formControlName="Firstname"
+          required
+        />
+        <br />
+        <div class="error" *ngIf="registerForm.controls['Firstname'].dirty">
+          <p *ngIf="registerForm.controls['Firstname'].errors">
+            First Name is Invalid
+          </p>
+          <p *ngIf="registerForm.controls['Firstname'].errors?.['required']">
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="lastname">Lastname</label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Enter your lastname"
+          [(ngModel)]="createuser.lastName"
+          formControlName="Lastname"
+          required
+        />
+        <br />
+        <div class="error" *ngIf="registerForm.controls['Lastname'].dirty">
+          <p *ngIf="registerForm.controls['Lastname'].errors">
+            Last Name is Invalid
+          </p>
+          <p *ngIf="registerForm.controls['Lastname'].errors?.['required']">
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="emailid">Email</label>
+        <input
+          type="text"
+          required
+          id="emailid"
+          name="emailid"
+          placeholder="Enter your emailid"
+          [(ngModel)]="createuser.emailId"
+          formControlName="Emailid"
+        />
+        <br />
+        <div class="error" *ngIf="registerForm.controls['Emailid'].dirty">
+          <p *ngIf="registerForm.controls['Emailid'].errors">
+            Email id is Invalid
+          </p>
+          <p *ngIf="registerForm.controls['Emailid'].errors?.['required']">
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="mobilenumber">Mobile Number</label>
+        <input
+          type="text"
+          required
+          id="mobilenumber"
+          name="mobilenumber"
+          placeholder="Enter your mobilenumber"
+          [(ngModel)]="createuser.mobileNumber"
+          formControlName="Mobilenumber"
+        />
+        <br />
+        <div class="error" *ngIf="registerForm.controls['Mobilenumber'].dirty">
+          <p *ngIf="registerForm.controls['Mobilenumber'].errors">
+            Mobile Number should be 10 digits
+          </p>
+          <p *ngIf="registerForm.controls['Mobilenumber'].errors?.['required']">
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          required
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          [(ngModel)]="createuser.password"
+          formControlName="Password"
+        />
+        <br />
+        <div class="error" *ngIf="registerForm.controls['Password'].dirty">
+          <p *ngIf="registerForm.controls['Password'].errors">
+            Password should be min 7 and max 15 characters, atleat 1 special
+            character, 1 number, 1 capital and 1 small letter is required!
+          </p>
+          <p *ngIf="registerForm.controls['Password'].errors?.['required']">
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="nationality">Nationality</label>
+        <input
+          type="text"
+          required
+          id="nationality"
+          name="nationality"
+          placeholder="Enter your nationality"
+          [(ngModel)]="createuser.nationality"
+          formControlName="Nationality"
+        />
+        <br />
+        <div class="error" *ngIf="registerForm.controls['Nationality'].dirty">
+          <p *ngIf="registerForm.controls['Nationality'].errors">
+            max limit is 20 characters
+          </p>
+          <p *ngIf="registerForm.controls['Nationality'].errors?.['required']">
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="passportnumber">Passport Number</label>
+        <input
+          type="text"
+          required
+          id="passportnumber"
+          name="passportnumber"
+          placeholder="Enter your passportnumber"
+          [(ngModel)]="createuser.passportNumber"
+          formControlName="Passportnumber"
+        />
+        <br />
+        <div
+          class="error"
+          *ngIf="registerForm.controls['Passportnumber'].dirty"
+        >
+          <p *ngIf="registerForm.controls['Passportnumber'].errors">
+            min 7 and max 12 characters required!
+          </p>
+          <p
+            *ngIf="registerForm.controls['Passportnumber'].errors?.['required']"
+          >
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="permanentaddress">Permanent Address </label>
+        <input
+          type="text"
+          required
+          id="permanentaddress"
+          name="permanentaddress"
+          placeholder="Enter your permanentaddress"
+          [(ngModel)]="createuser.permanentAddress"
+          formControlName="Permanentaddress"
+        />
+        <br />
+        <div
+          class="error"
+          *ngIf="registerForm.controls['Permanentaddress'].dirty"
+        >
+          <p *ngIf="registerForm.controls['Permanentaddress'].errors">
+            max limit is 200 characters
+          </p>
+          <p
+            *ngIf="registerForm.controls['Permanentaddress'].errors?.['required']"
+          >
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="officeaddress">Office Address</label>
+        <input
+          type="text"
+          required
+          id="officeaddress"
+          name="officeaddress"
+          placeholder="Enter your officeaddress"
+          [(ngModel)]="createuser.officeAddress"
+          formControlName="Officeaddress"
+        />
+        <br />
+        <div class="error" *ngIf="registerForm.controls['Officeaddress'].dirty">
+          <p *ngIf="registerForm.controls['Officeaddress'].errors">
+            max limit is 200 characters
+          </p>
+          <p
+            *ngIf="registerForm.controls['Officeaddress'].errors?.['required']"
+          >
+            This Field is required!
+          </p>
+        </div>
+
+        <label for="personalidentificationnumber"
+          >Personal Identification Number</label
+        >
+        <input
+          type="text"
+          required
+          id="personalidentificationnumber"
+          name="personalidentificationnumber"
+          placeholder="Enter your personalIdentificationnumber"
+          [(ngModel)]="createuser.personalIdentificationNumber"
+          formControlName="Personalidentificationnumber"
+        />
+        <br />
+        <div
+          class="error"
+          *ngIf="registerForm.controls['Personalidentificationnumber'].dirty"
+        >
+          <p
+            *ngIf="registerForm.controls['Personalidentificationnumber'].errors"
+          >
+            Personal Identification Number should contain 12 digits
+          </p>
+          <p
+            *ngIf="registerForm.controls['Personalidentificationnumber'].errors?.['required']"
+          >
+            This Field is required!
+          </p>
+        </div>
+
+        <button
+          class="submitbtn"
+          type="submit"
+          [disabled]="
+            createuser.firstName
+              ? createuser.lastName
+                ? createuser.emailId
+                  ? createuser.mobileNumber
+                    ? createuser.password
+                      ? createuser.nationality
+                        ? createuser.passportNumber
+                          ? createuser.permanentAddress
+                            ? createuser.officeAddress
+                              ? createuser.personalIdentificationNumber
+                                ? false
+                                : true
+                              : true
+                            : true
+                          : true
+                        : true
+                      : true
+                    : true
+                  : true
+                : true
+              : true
+          "
+        >
+          Submit
+        </button>
+        <!-- [disabled]="firstname?lastname?emailid?mobilenumber?password?nationality?passportnumber?permanentaddress?officeaddress?personalidentificationnumber?false:true:true:true:true:true:true:true:true:true:true" [ngStyle]="{'backgroundColor':username?password?'rgb(79, 129, 223)':'rgb(205, 224, 242)':'rgb(205, 224, 242)'}" -->
+        <div>
+          <button>Back</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

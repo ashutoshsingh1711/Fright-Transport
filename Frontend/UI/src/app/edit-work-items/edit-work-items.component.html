@@ -1,0 +1,35 @@
+<div class="container">
+  <form [formGroup]="editform" (ngSubmit)="editWorkItemFun(editform)">
+    <mat-form-field appearance="standard">
+      <mat-label>Origin Harbor Location</mat-label>
+      <input
+        matInput
+        inputmode="originHarborLocation"
+        placeholder="Origin Harbor Location"
+        formControlName="originHarborLocation"
+        #originHarborLocation
+      />
+      <mat-error>Origin Harbor Location is required</mat-error>
+      <mat-error *ngIf="editform.controls['originHarborLocation'].errors">
+        Please Enter Origin Harbor Location!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-error>Shipping Date is required</mat-error>
+      <mat-error *ngIf="editform.controls['shippingDate'].errors">
+        Please Enter Shipping Date!
+      </mat-error>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!editform.valid"
+      >
+        Update Work Item
+      </button>
+    </div>
+  </form>
+</div>

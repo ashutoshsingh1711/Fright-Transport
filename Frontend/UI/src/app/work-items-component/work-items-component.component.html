@@ -1,0 +1,107 @@
+<div class="name">
+<h1 style="font-weight: bolder">Work Items</h1>
+</div>
+<mat-form-field>
+  <input (input)="applyFilter($event)" matInput placeholder="Search" />
+</mat-form-field>
+<table
+  *ngIf="!isAdd && !isEdit"
+  mat-table
+  [dataSource]="workItems"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="workItemId">
+    <th mat-header-cell *matHeaderCellDef>WorkItem Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.workItemId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="itemName">
+    <th mat-header-cell *matHeaderCellDef>Item Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.itemName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="itemType">
+    <th mat-header-cell *matHeaderCellDef>Item Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.itemType }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="itemDescription">
+    <th mat-header-cell *matHeaderCellDef>Item Description</th>
+    <td mat-cell *matCellDef="let element">{{ element.itemDescription }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="messageToRecipient">
+    <th mat-header-cell *matHeaderCellDef>Message To Recipient</th>
+    <td mat-cell *matCellDef="let element">{{ element.messageToRecipient }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="sourceCountry">
+    <th mat-header-cell *matHeaderCellDef>Source Country</th>
+    <td mat-cell *matCellDef="let element">{{ element.sourceCountry }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="destinationCountry">
+    <th mat-header-cell *matHeaderCellDef>Designation Country</th>
+    <td mat-cell *matCellDef="let element">{{ element.destinationCountry }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="originHarborLocation">
+    <th mat-header-cell *matHeaderCellDef>Origin Harbor Location</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.originHarborLocation }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="selectedHarborLocations">
+    <th mat-header-cell *matHeaderCellDef>Selected Harbor Location</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.selectedHarborLocations }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="shippingDate">
+    <th mat-header-cell *matHeaderCellDef>ShippingDate</th>
+    <td mat-cell *matCellDef="let element">{{ element.shippingDate }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+  </ng-container>
+  <ng-container matColumnDef="editButton">
+    <th mat-header-cell *matHeaderCellDef>Edit Work Item</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.editButton }}
+      <button
+        (click)="isEdit = true; editWorkItem = element"
+        mat-button
+        color="black"
+      >
+        Edit
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<br />
+<div *ngIf="!isEdit">
+  <button (click)="isAdd = true" mat-button color="black" style="font-weight: bolder">Add Work Item</button>
+</div>
+<div *ngIf="isAdd && !isEdit">
+  <app-add-work-items
+    (registerEvent)="addWorkItem($event)"
+  ></app-add-work-items>
+</div>
+<div *ngIf="isEdit">
+  <app-edit-work-items
+    [editWorkItem]="editWorkItem"
+    (registerEvent)="editWorkItemFun($event)"
+  ></app-edit-work-items>
+</div>

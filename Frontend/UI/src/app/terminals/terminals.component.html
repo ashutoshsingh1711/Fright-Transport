@@ -1,0 +1,435 @@
+<div class="main">
+  <!-- <div class="tableTop"> -->
+  <div class="main">
+    <div class="tableTop">
+      <h1 class="center" style="font-weight: bolder">Welcome To Terminal</h1>
+      <button class="right" [routerLink]="['/admin-dashboard']">Home</button>
+    </div>
+
+    <div *ngIf="!submitted">
+      <table style="border-collapse: collapse " class="tableTerminal">
+        <thead>
+          <th>Functionality</th>
+          <th>Explaination</th>
+          <th>Link</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Add Terminal</td>
+            <td>This method is used to insert the new terminal details. </td>
+            <td><button type="submit" (click)="add()">Send Request</button></td>
+          </tr>
+          <tr>
+            <td>Get Terminals</td>
+            <td>Return the available terminals details</td>
+            <td><button type="submit" (click)="getAll()">Send Request</button></td>
+          </tr>
+          <tr>
+            <td>Delete Terminal</td>
+            <td>This method is used to delete the terminal details.</td>
+            <td><button type="submit" (click)="delete()">Send Request</button></td>
+          </tr>
+          <tr>
+            <td>Get Terminal By Id</td>
+            <td>Return the terminals details for the given terminalId.</td>
+            <td><button type="submit" (click)="getById()">Send Request</button></td>
+          </tr>
+          <tr>
+            <td>Gets Terminal by Item Type</td>
+            <td>Return the terminals details based on the given item type.</td>
+            <td><button type="submit" (click)="getByItem()">Send Request</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="adding && submitted && !addingmessage">
+      <form
+        style="text-align: center; margin-top: 30px"
+        [formGroup]="addterminal"
+      >
+        <div class="form-group">
+          <!-- <label >Terminal Id</label><br />
+          <!-- #terminal was here -->
+          <!-- <input
+            required
+            formControlName="Terminalid"
+            [(ngModel)]="term.terminalId"
+            type="text"
+            
+          /><br /> -->
+          <div class="error" *ngIf="addterminal.controls['Terminalid'].dirty">
+            <p *ngIf="addterminal.controls['Terminalid'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Terminal Name</label
+          ><br />
+          <input
+            required
+            formControlName="Terminalname"
+            [(ngModel)]="term.terminalName"
+            type="text"
+            class="form-control"
+         
+          /><br />
+          <div class="error" *ngIf="addterminal.controls['Terminalname'].dirty">
+            <p *ngIf="addterminal.controls['Terminalname'].errors">
+              Terminal Name is Invalid
+            </p>
+            <p
+              *ngIf="addterminal.controls['Terminalname'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Country</label><br />
+          <input
+            required
+            formControlName="Country"
+            [(ngModel)]="term.country"
+            type="text"
+            class="form-control"
+            
+          /><br />
+          <div class="error" *ngIf="addterminal.controls['Country'].dirty">
+            <p *ngIf="addterminal.controls['Country'].errors">
+              Country is Invalid
+            </p>
+            <p *ngIf="addterminal.controls['Country'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Item Type</label><br />
+          <input
+            required
+            formControlName="Itemtype"
+            [(ngModel)]="term.itemType"
+            type="text"
+            class="form-control"
+            
+          /><br />
+          <div class="error" *ngIf="addterminal.controls['Itemtype'].dirty">
+            <p *ngIf="addterminal.controls['Itemtype'].errors">
+              Item type is Invalid
+            </p>
+            <p *ngIf="addterminal.controls['Itemtype'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label 
+            >Terminal Description</label
+          ><br />
+          <input
+            required
+            formControlName="Terminaldescription"
+            [(ngModel)]="term.terminalDescription"
+            type="text"
+            class="form-control"
+            
+          /><br />
+          <div
+            class="error"
+            *ngIf="addterminal.controls['Terminaldescription'].dirty"
+          >
+            <p *ngIf="addterminal.controls['Terminaldescription'].errors">
+              Terminal description is Invalid
+            </p>
+            <p
+              *ngIf="addterminal.controls['Terminaldescription'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Capacity</label><br />
+          <input
+            required
+            formControlName="Capacity"
+            [(ngModel)]="term.capacity"
+            type="number"
+            class="form-control"
+            
+          /><br />
+          <div class="error" *ngIf="addterminal.controls['Capacity'].dirty">
+            <p *ngIf="addterminal.controls['Capacity'].errors">
+              Capacity is Invalid
+            </p>
+            <p *ngIf="addterminal.controls['Capacity'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Available Capacity</label
+          ><br />
+          <input
+            required
+            formControlName="Availablecapacity"
+            [(ngModel)]="term.availablecapacity"
+            type="number"
+            class="form-control"
+         
+          /><br />
+          <div
+            class="error"
+            *ngIf="addterminal.controls['Availablecapacity'].dirty"
+          >
+            <p *ngIf="addterminal.controls['Availablecapacity'].errors">
+              Available capacity is Invalid
+            </p>
+            <p
+              *ngIf="addterminal.controls['Availablecapacity'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label > Status </label><br />
+          <input
+            required
+            formControlName="Status"
+            [(ngModel)]="term.status"
+            type="text"
+            class="form-control"
+            
+          /><br />
+          <div class="error" *ngIf="addterminal.controls['Status'].dirty">
+            <p *ngIf="addterminal.controls['Status'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Harbour Location</label
+          ><br />
+          <input
+            required
+            formControlName="Harbourlocation"
+            [(ngModel)]="term.harborLocation"
+            type="text"
+            class="form-control"
+            
+          /><br />
+          <div
+            class="error"
+            *ngIf="addterminal.controls['Harbourlocation'].dirty"
+          >
+            <p
+              *ngIf="addterminal.controls['Harbourlocation'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+
+        <button class="submitbtn" type="submit" (click)="Submit()" style="font-weight: bolder">
+          Submit
+        </button>
+      </form>
+      <button
+        style="margin-bottom: 30px; margin-left: 735px; margin-top: 10px"
+        type="submit"
+        (click)="Back()"
+      >
+        Back
+      </button>
+    </div>
+    <div *ngIf="addingmessage">
+      <p style="text-align: center">
+        Added Suucessful
+      </p>
+      <br />
+      <br />
+      <button
+        style="margin-bottom: 30px; margin-left: 750px; margin-top: 10px"
+        type="submit"
+        (click)="Back()"
+      >
+        Back
+      </button>
+    </div>
+
+    <div *ngIf="getting && submitted">
+      <table style="border-collapse: collapse">
+        <thead>
+          <th>Terminal Id</th>
+          <th>Terminal Name</th>
+          <th>Country</th>
+          <th>Item Type</th>
+          <th>Terminal Description</th>
+          <th>Capacity</th>
+          <th>Available Capacity</th>
+          <th>Status</th>
+          <!-- <th>Harbour Location</th> -->
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of terminalDetails">
+            <th>{{ r.terminal_id }}</th>
+            <th>{{ r.name }}</th>
+            <th>{{ r.country }}</th>
+            <th>{{ r.item_type }}</th>
+            <th>{{ r.terminal_description }}</th>
+            <th>{{ r.capacity }}</th>
+            <th>{{ r.available_capacity }}</th>
+            <th>{{ r.status }}</th>
+            <!-- <th>{{ r.harbor_location }}</th> -->
+          </tr>
+        </tbody>
+      </table>
+      <button
+        style="margin-bottom: 30px; margin-left: 750px; margin-top: 10px"
+        type="submit"
+        (click)="Back()"
+      >
+        Back
+      </button>
+    </div>
+
+    <div *ngIf="updating && submitted && !updatingmessage">
+      <p>update terminal from here</p>
+      <div>
+        <p>Terminal Id<input type="text" [(ngModel)]="terminalId" /></p>
+        <p>New Capacity<input type="number" [(ngModel)]="cap" /></p>
+      </div>
+      <button type="submit" (click)="updatemessage()">Update</button>
+      <button type="submit" (click)="Back()">Back</button>
+    </div>
+    <div *ngIf="updatingmessage">
+      Update Suucessful
+      <br />
+      <br />
+      <button
+        style="margin-bottom: 30px; margin-left: 750px; margin-top: 10px"
+        type="submit"
+        (click)="Back()"
+      >
+        Back
+      </button>
+    </div>
+
+    <div class="delete" *ngIf="deleting && submitted && !deletingmessage">
+      <p style="text-align: center" >Delete Terminal</p>
+      <div>
+        <p style="text-align: center">Id  <input type="text" [(ngModel)]="terminalId" /></p>
+      </div>
+      <div class="button">
+      <button type="submit" (click)="deletemessage()" >Delete</button>
+      <button type="submit" (click)="Back()">Back</button>
+    </div>
+    </div>
+    <div *ngIf="deletingmessage">
+      <p style="text-align: center; background-color: aquamarine">
+        Deleted Succesfully{{ stringdelete }}
+      </p>
+      <br />
+      <br />
+      <button
+        style="margin-bottom: 30px; margin-left: 750px; margin-top: 10px"
+        type="submit"
+        (click)="Back()"
+      >
+        Back
+      </button>
+    </div>
+
+    <div class="delete" *ngIf="gettingId && submitted">
+      <p style="text-align: center" >Get Terminal based on terminal id</p>
+      <div style="text-align: center">
+        <p>Id  <input type="text" [(ngModel)]="terminalId" /></p>
+      </div>
+      <div class="button">
+      <button  type="submit" (click)="getIdmessage()">Get</button>
+      <button  type="submit" (click)="Back()">Back</button>
+    </div>
+    </div>
+    <div *ngIf="gettingIdmessage">
+      <table style="border-collapse: collapse">
+        <thead>
+          <th>Terminal Id</th>
+          <th>Terminal Name</th>
+          <th>Country</th>
+          <th>Item Type</th>
+          <th>Terminal Description</th>
+          <th>Capacity</th>
+          <th>Available Capacity</th>
+          <th>Status</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{ terminalDetailsById.terminal_id }}</td>
+            <td>{{ terminalDetailsById.name }}</td>
+            <td>{{ terminalDetailsById.country }}</td>
+            <td>{{ terminalDetailsById.item_type}}</td>
+            <td>{{ terminalDetailsById.terminal_description }}</td>
+            <td>{{ terminalDetailsById.capacity }}</td>
+            <td>{{ terminalDetailsById.available_capacity }}</td>
+            <td>{{ terminalDetailsById.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button
+        style="margin-bottom: 30px; margin-left: 750px; margin-top: 10px"
+        type="submit"
+        (click)="Back()"
+      >
+        Back
+      </button>
+    </div>
+
+    <div class="delete" *ngIf="gettingItem && submitted">
+      <p style="text-align: center">Get Terminal based on Item Type</p>
+      <div style="text-align: center">
+        <p>Item Type<input type="text" [(ngModel)]="itemType" /></p>
+      </div>
+      <div class="button">
+      <button type="submit" (click)="getItemmessage()">Get</button>
+      <button type="submit" (click)="Back()">Back</button>
+    </div>
+    </div>
+    <div *ngIf="gettingItemmessage">
+      <table>
+        <thead>
+          <th>Terminal Id</th>
+          <th>Terminal Name</th>
+          <th>Country</th>
+          <th>Item Type</th>
+          <th>Terminal Description</th>
+          <th>Capacity</th>
+          <th>Available Capacity</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of terminalDetailsByItem">
+            <td>{{ r.terminal_id }}</td>
+            <td>{{ r.terminal_name }}</td>
+            <td>{{ r.country }}</td>
+            <td>{{ r.item_type }}</td>
+            <td>{{ r.terminal_description }}</td>
+            <td>{{ r.capacity }}</td>
+            <td>{{ r.available_capacity }}</td>
+            <td>{{ r.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button
+        style="margin-bottom: 30px; margin-left: 750px; margin-top: 10px"
+        type="submit"
+        (click)="Back()"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+input {
+  height: 10px;
+}
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.main {
+  background-color: bisque;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: skyblue;
+  color: black;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+a {
+  color: dodgerblue;
+}
+
+.signin {
+  margin: 1px;
+  text-align: center;
+}
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: large;
+}
+
+.main {
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70%;
+}
+
+.add{
+  background-color: blue;
+}

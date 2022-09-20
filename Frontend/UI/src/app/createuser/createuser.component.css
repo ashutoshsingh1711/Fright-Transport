@@ -1,0 +1,83 @@
+.registration {
+  text-align: center;
+}
+.register{
+  background-color: bisque;
+}
+.main {
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70%;
+  
+}
+p {
+  color: red;
+}
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.container {
+  margin-top: 10px;
+  padding: 16px;
+}
+
+input {
+  height: 35px;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 20px;
+}
+
+.submitbtn {
+  background-color: skyblue;
+  color: black;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  font-weight: bolder;
+  
+}
+
+.submitbtn:hover {
+  opacity: 1;
+}
+
+a {
+  color: dodgerblue;
+}
+
+.signin {
+  margin: 1px;
+  text-align: center;
+}
+
+.buttondiv {
+  /* display: flex; */
+  width: 20%;
+  margin-left: 40px;
+  justify-content: space-between;
+}

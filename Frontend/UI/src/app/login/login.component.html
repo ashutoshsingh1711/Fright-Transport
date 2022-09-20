@@ -1,0 +1,74 @@
+<div class="login">
+<div class="main">
+  <div class="logincomponent, container">
+    <!-- <div class="backimg,"></div> -->
+    <div class="login-form">
+      <form class="login" [formGroup]="login" (ngSubmit)="submit()">
+        <h1 class = "loginButton" style="font-weight: bolder">Login</h1>
+        <hr />
+        <br />
+        <label for="username">Email</label>
+        <br />
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your User Name"
+          [(ngModel)]="logincheck.userId"
+          formControlName="UserName"
+          required
+        />
+        <br />
+        <div class="error" *ngIf="login.controls['UserName'].dirty">
+          <p *ngIf="login.controls['UserName'].errors?.['required']">
+            This Field is Required
+          </p>
+        </div>
+        <label for="password">Password</label>
+        <br />
+        <input
+          type="password"
+          required
+          id="password"
+          name="password"
+          placeholder="Enter your Password"
+          [(ngModel)]="logincheck.password"
+          formControlName="Password"
+        />
+        <br />
+        <div class="error" *ngIf="login.controls['Password'].dirty">
+          <p *ngIf="login.controls['Password'].errors?.['required']">
+            This Field is Required
+          </p>
+        </div>
+        <hr />
+        <div *ngIf="submitted">
+          <h4
+            *ngIf="!isAuthenticated"
+            [ngStyle]="{ color: 'red', marginLeft: '20px' }"
+          >
+            Invalid Username or Password
+          </h4>
+        </div>
+        <!-- <button type="submit" [disabled]="username?password?false:true:true" [ngStyle]="{'backgroundColor':username?password?'rgb(79, 129, 223)':'rgb(205, 224, 242)':'rgb(205, 224, 242)'}">Submit</button> -->
+
+        <button
+          type="submit"
+         
+          class="submitbtn" [routerLink]="['/user-dashboard']"
+        >
+          Submit
+        </button>
+
+        <div class="container signin">
+          <p>
+            Dont have an account?<a [routerLink]="['/create-user']">
+              Create Account</a
+            >
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

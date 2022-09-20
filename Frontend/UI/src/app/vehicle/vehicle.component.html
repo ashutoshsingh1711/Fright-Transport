@@ -1,0 +1,238 @@
+<!-- <div class="main"> -->
+<!-- <div class="tableTop"> -->
+<div class="main">
+  <div class="tableTop">
+    <button [routerLink]="['/admin-dashboard']">Home</button>
+  </div>
+
+  <div *ngIf="!submitted">
+    <table style="border-collapse: collapse " class="tableTerminal">
+      <thead>
+        <th>Functionality</th>
+        <th>Explaination</th>
+        <th>Link</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Add Vehicle</td>
+          <td>This method is used to insert the new vehicle details.</td>
+          <td><button type="submit" (click)="add()"style="font-weight: bolder">Send Request</button></td>
+        </tr>
+        <tr>
+          <td>Get Vehicles</td>
+          <td>This method is used to return all vehicle details.</td>
+          <td><button type="submit" (click)="getAll()"style="font-weight: bolder">Send Request</button></td>
+        </tr>
+        <tr>
+          <td>Delete Vehicle</td>
+          <td>This method is used to delete the vehicle details.</td>
+          <td><button type="submit" (click)="delete()"style="font-weight: bolder">Send Request</button></td>
+        </tr>
+        <tr>
+          <td>Get By Vehicle Number</td>
+          <td>This method is used to return the vehicle details based on the given vehicle number</td>
+          <td>
+            <button type="submit" (click)="getById()"style="font-weight: bolder">Send Request</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Gets By Vehicle Name</td>
+          <td>This method is used to return the vehicle details based on the given vehicle.</td>
+          <td>
+            <button type="submit" (click)="getByItem()" style="font-weight: bolder">Send Request</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="adding && submitted && !addingmessage" class="middle">
+    <div class="container container-styles">
+      <form [formGroup]="addVehicle">
+        <div class="form-group">
+          <label>Vehicle Number</label><br />
+          <input
+            required
+            formControlName="vehicleNumber"
+            type="text"
+            class="form-control"
+          /><br />
+          <div class="error" *ngIf="addVehicle.controls['vehicleNumber'].dirty">
+            <p
+              *ngIf="addVehicle.controls['vehicleNumber'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Vehicle Name</label><br />
+          <input
+            required
+            formControlName="vehicleName"
+            type="text"
+            class="form-control"
+          /><br />
+          <div class="error" *ngIf="addVehicle.controls['vehicleName'].dirty">
+            <p *ngIf="addVehicle.controls['vehicleName'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Max Lifting Capacity</label><br />
+          <input
+            required
+            formControlName="maxLiftingCapacity"
+            type="text"
+            class="form-control"
+          /><br />
+          <div
+            class="error"
+            *ngIf="addVehicle.controls['maxLiftingCapacity'].dirty"
+          >
+            <p
+              *ngIf="addVehicle.controls['maxLiftingCapacity'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Retire Date</label><br />
+          <input
+            required
+            formControlName="retireDate"
+            type="date"
+            class="form-control"
+          /><br />
+          <div class="error" *ngIf="addVehicle.controls['retireDate'].dirty">
+            <p *ngIf="addVehicle.controls['retireDate'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Vehicle Status</label><br />
+          <input
+            required
+            formControlName="vehicleStatus"
+            type="text"
+            class="form-control"
+          /><br />
+          <div class="error" *ngIf="addVehicle.controls['vehicleStatus'].dirty">
+            <p
+              *ngIf="addVehicle.controls['vehicleStatus'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Harbor Location</label><br />
+          <input
+            required
+            formControlName="harborLocation"
+            type="text"
+            class="form-control"
+          /><br />
+          <div
+            class="error"
+            *ngIf="addVehicle.controls['harborLocation'].dirty"
+          >
+            <p
+              *ngIf="addVehicle.controls['harborLocation'].errors?.['required']"
+            >
+              This Field is Required
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Country</label><br />
+          <input
+            required
+            formControlName="country"
+            type="text"
+            class="form-control"
+          /><br />
+          <div class="error" *ngIf="addVehicle.controls['country'].dirty">
+            <p *ngIf="addVehicle.controls['country'].errors?.['required']">
+              This Field is Required
+            </p>
+          </div>
+        </div>
+
+        <button type="button" (click)="Submit()">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="addingmessage">
+    Added Successfully!!
+    <!-- <button type="submit" (click)="Back()">Back</button> -->
+  </div>
+  <div class="name" *ngIf="gettingItem && submitted">
+    <p style="font-weight: bolder">Get Vehicle by Vehicle Name</p>
+    <div>
+      <p style="font-weight: bolder">Item Type: <input type="text" #vehicleName /></p>
+    </div>
+    <button type="submit" (click)="getItemmessage(vehicleName.value)">
+      Get
+    </button>
+    <!-- <button type="submit" (click)="Back()">Back</button> -->
+  </div>
+  <div class="name" *ngIf="gettingId && submitted">
+    <p style="font-weight: bolder">Get Vehicle by Vehicle Number</p>
+    <div>
+      <p style="font-weight: bolder">Vehicle Number: <input type="text" #vehicleNumber /></p>
+    </div>
+    <button type="submit" (click)="getIdmessage(vehicleNumber.value)">
+      Get Vehicle
+    </button>
+    <!-- <button type="submit" (click)="Back()">Back</button> -->
+  </div>
+  <div *ngIf="gettingItemmessage || gettingIdmessage || (getting && submitted)">
+    <table style="border-collapse: collapse " class="tableTerminal">
+      <thead>
+        <th>Vehicle Number</th>
+        <th>Vehicle Name</th>
+        <th>Max Lifting Capacity</th>
+        <th>Retire Date</th>
+        <th>Vehicle Status</th>
+        <th>Harbor Location</th>
+        <th>Country</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of vehicleDetails">
+          <td>{{ r.vehicleNumber }}</td>
+          <td>{{ r.vehicleName }}</td>
+          <td>{{ r.maxLiftingcapacity }}</td>
+          <td>{{ r.retireDate }}</td>
+          <td>{{ r.vehicleStatus }}</td>
+          <td>{{ r.harborLocation }}</td>
+          <td>{{ r.country }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <button type="submit" (click)="Back()">Back</button> -->
+  </div>
+
+  <div class="name" *ngIf="deleting && submitted && !deletingmessage">
+    <p  style="font-weight: bolder">Delete Vehicle</p>
+    <div>
+      <p style="font-weight: bolder">Vehicle Number: <input [(ngModel)]="vehicleNumber" type="text" /></p>
+      
+    </div>
+
+    <div class="button">
+    <button type="submit" (click)="deletemessage(vehicleNumber)">Delete</button>
+    <button *ngIf="submitted" type="submit" (click)="Back()">Back</button>
+    </div>
+    <!-- <button type="submit" (click)="Back()">Back</button> -->
+  </div>
+  <div *ngIf="deletingmessage">
+    Vehicle Removed Successfully!!
+    <!-- <button type="submit" (click)="Back()">Back</button> -->
+  </div>
+
+  
+</div>

@@ -1,0 +1,73 @@
+<div class="main">
+  <div class="container">
+    <form [formGroup]="update" (ngSubmit)="submit()">
+      <label for=""> Mobile Number : </label>
+      <input
+        required
+        formControlName="Mobilenumber"
+        [(ngModel)]="upd.mobileNumber"
+        type="text"
+      />
+      <br />
+      <div class="error" *ngIf="update.controls['Mobilenumber'].dirty">
+        <p *ngIf="update.controls['Mobilenumber'].errors">
+          Mobile Number should be 10 digits
+        </p>
+        <p *ngIf="update.controls['Mobilenumber'].errors?.['required']">
+          This Field is Required
+        </p>
+      </div>
+      <br />
+      <label for="">Permanent Address : </label>
+      <input
+        required
+        formControlName="Permanentaddress"
+        [(ngModel)]="upd.permanentAddress"
+        type="text"
+      />
+      <br />
+      <div class="error" *ngIf="update.controls['Permanentaddress'].dirty">
+        <p *ngIf="update.controls['Permanentaddress'].errors">
+          max limit is 200 characters
+        </p>
+        <p *ngIf="update.controls['Permanentaddress'].errors?.['required']">
+          This Field is Required
+        </p>
+      </div>
+      <br />
+      <label for="">Office Address : </label>
+      <input
+        required
+        formControlName="Officeaddress"
+        [(ngModel)]="upd.officeAddress"
+        type="text"
+      />
+      <br />
+      <div class="error" *ngIf="update.controls['Officeaddress'].dirty">
+        <p *ngIf="update.controls['Officeaddress'].errors">
+          max limit is 200 characters
+        </p>
+        <p *ngIf="update.controls['Officeaddress'].errors?.['required']">
+          This Field is Required
+        </p>
+      </div>
+      <br />
+      <!-- <button [disabled]="officeAddress?permanentAddress?mobileNumber?false:true:true:true">Submit</button> -->
+      <button
+        class="registerbtn"
+        type="submit"
+        [disabled]="
+          upd.officeAddress
+            ? upd.permanentAddress
+              ? upd.mobileNumber
+                ? false
+                : true
+              : true
+            : true
+        "
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="main">
+  <h2>User Profile</h2>
+
+  <table *ngFor="let user of userDetails">
+    <tr>
+      <th>Personal Identification Number :</th>
+      <td>{{ user.personalIdentificationNumber }}</td>
+    </tr>
+    <tr>
+      <th>First Name :</th>
+      <td>{{ user.firstName }}</td>
+    </tr>
+    <tr>
+      <th>Last Name :</th>
+      <td>{{ user.lastName }}</td>
+    </tr>
+    <tr>
+      <th>Email Id :</th>
+      <td>{{ user.emailId }}</td>
+    </tr>
+    <tr>
+      <th>Mobile Number :</th>
+      <td>{{ user.mobileNumber }}</td>
+    </tr>
+    <tr>
+      <th>password :</th>
+      <td>{{ user.password }}</td>
+    </tr>
+    <tr>
+      <th>Nationality :</th>
+      <td>{{ user.nationality }}</td>
+    </tr>
+    <tr>
+      <th>Passport Number :</th>
+      <td>{{ user.passportNumber }}</td>
+    </tr>
+    <tr>
+      <th>Permanent Address :</th>
+      <td>{{ user.permanentAddress }}</td>
+    </tr>
+    <tr>
+      <th>Office Address :</th>
+      <td>{{ user.officeAddress }}</td>
+    </tr>
+  </table>
+  <div>
+    <button class="lBtn" [routerLink]="['/update-profile']" (click)="update()">
+      Update Profile
+    </button>
+
+    <button class="sBtn" (click)="delete()">Delete Profile</button>
+  </div>
+</div>

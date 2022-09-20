@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+footer {
+  margin-top: 20px;
+  margin-bottom: -10px;
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: brown;
+  color: white;
+}
+footer i,
+p {
+  justify-content: left;
+}
+.footer-one,
+.footer-three {
+  background-color: brown;
+}
+
+li:hover {
+  opacity: 0.8;
+  padding: 6px;
+  border-radius: 5px;
+  background-color: lavender;
+}
+
+button {
+  border-radius: 5px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

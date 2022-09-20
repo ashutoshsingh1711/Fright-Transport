@@ -1,0 +1,29 @@
+.main {
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70%;
+  margin-top: 50px;
+  text-align: center;
+
+  background-color: bisque;
+  
+}
+
+.btn {
+  background-color: rgb(107, 166, 234);
+  /* color: white; */
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+

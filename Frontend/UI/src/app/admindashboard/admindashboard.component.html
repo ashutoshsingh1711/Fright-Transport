@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Admin Login Template</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <!--  <link rel="stylesheet" href="assets/css/login.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!----pop up font style link---->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@200&family=Reggae+One&display=swap"
+      rel="stylesheet"
+    />
+    <!----pop up font style link end---->
+  </head>
+
+  <body
+    style="
+      background-image: url('https://cdn.pixabay.com/photo/2020/12/06/22/51/ship-5810249_960_720.jpg');
+      height: 100vh;
+      background-size: contain;
+    "
+  >
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top navbar-scroll">
+        <div class="tableTop">
+          <h1 style="font-weight: bolder">Welcome To Admin DashBoard</h1>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="btn nav-link" [routerLink]="['/home']" style="font-weight: bolder">LogOut</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="btn nav-link" [routerLink]="['/terminal']" style="font-weight: bolder"
+                  >Terminal</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="btn nav-link" [routerLink]="['/vehicle']" style="font-weight: bolder">Vehicles</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar -->
+
+      <!--Section: Design Block-->
+      <section>
+        <div
+          id="intro"
+          class="bg-image"
+          style="
+            background-image: url('https://images.unsplash.com/photo-1595587637401-83ff822bd63e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1201&q=80');
+            height: 1vh;
+            background-repeat: no-repeat;
+          "
+        ></div>
+      </section>
+      <!--Section: Design Block-->
+    </header>
+
+    <main>
+      <div class="container my-5 py-5"></div>
+    </main>
+  </body>
+</html>
